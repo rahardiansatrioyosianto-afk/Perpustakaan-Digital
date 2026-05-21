@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perpustakaan Cendekia - Koleksi</title>
+
+<style>
+
+:root{
+  --navy:#0f2747;
+  --navy2:#17365f;
+  --bg:#f4f7fb;
+  --text:#1f2937;
+  --muted:#64748b;
+  --line:#dbe3ee;
+  --shadow:0 14px 40px rgba(15,39,71,.10);
+  --radius:22px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+header{
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:#fff;
+  padding:16px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:var(--shadow);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:#fff;
+  font-size:14px;
+  padding:10px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  display:inline-block;
+  transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+  background:rgba(255,255,255,.14);
+}
+
+.page{
+  padding:42px 0 54px;
+}
+
+.hero{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:34px 28px;
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:42px;
+  color:var(--navy);
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:var(--muted);
+}
+
+.collection-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:22px;
+}
+
+.book-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.book-cover{
+  height:220px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#0f2747,#17365f);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.book-card h3{
+  color:var(--navy);
+  margin-bottom:10px;
+}
+
+.book-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:14px;
+}
+
+.reader{
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+
+.reader iframe{
+  width:100%;
+  height:420px;
+  border:none;
+}
+
+.footer{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:18px 0;
+  margin-top:34px;
+}
+
+@media(max-width:768px){
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  nav ul{
+    justify-content:center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container topbar">
+
+<div class="brand">
+
+<!-- LOGO -->
+
+<div style="
+width:110px;
+height:110px;
+border-radius:28px;
+background:linear-gradient(145deg,#102c57,#173f75);
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+margin-left:8px;
+box-shadow:0 10px 30px rgba(16,44,87,.25);
+">
+
+<div style="
+position:absolute;
+bottom:28px;
+left:22px;
+width:68px;
+height:8px;
+background:#ffffff;
+border-radius:20px;
+"></div>
+
+<div style="
+position:absolute;
+bottom:36px;
+left:24px;
+width:14px;
+height:38px;
+background:#ffffff;
+border-radius:4px;
+transform:rotate(-6deg);
+"></div>
+
+<div style="
+position:absolute;
+bottom:36px;
+left:44px;
+width:14px;
+height:48px;
+background:#d9e6ff;
+border-radius:4px;
+"></div>
+
+<div style="
+position:absolute;
+bottom:36px;
+left:64px;
+width:14px;
+height:42px;
+background:#ffffff;
+border-radius:4px;
+transform:rotate(5deg);
+"></div>
+
+<div style="
+position:absolute;
+top:20px;
+right:18px;
+width:24px;
+height:24px;
+border:4px solid #ffffff;
+border-right:none;
+border-radius:50%;
+"></div>
+
+</div>
+
+<div>
+<h1>Perpustakaan Cendekia</h1>
+<p>Menyediakan akses informasi yang mudah, nyaman, dan bermanfaat.</p>
+</div>
+
+</div>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="profil.html">Profil</a></li>
+<li><a href="opac.html">OPAC</a></li>
+<li><a href="layanan.html">Layanan</a></li>
+<li><a class="active" href="koleksi.html">Koleksi</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="agenda.html">Agenda</a></li>
+<li><a href="berita.html">Berita</a></li>
+<li><a href="kontak.html">Kontak</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<main class="page">
+
+<div class="container">
+
+<section class="hero">
+
+<h2>Koleksi Digital Perpustakaan</h2>
+
+<p>
+Pemustaka dapat membaca koleksi digital langsung melalui halaman website perpustakaan.
+</p>
+
+</section>
+
+<section class="collection-grid">
+
+<section class="featured">
+
+  <div class="featured-head">
+    <div>
+      <h3 class="section-title">Koleksi Buku Digital</h3>
+      <p>
+        Berikut beberapa koleksi buku digital yang tersedia di Perpustakaan Cendekia.
+      </p>
+    </div>
+  </div>
+
+  <div class="recommend">
+
+   <section class="recommend">
+
+  <section class="recommend">
+
+  <!-- BUKU 1 -->
+
+  <div class="recommend-card">
+
+    <img
+      src="https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg"
+      alt="Pride and Prejudice"
+      style="
+      width:100%;
+      height:380px;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:16px;
+      box-shadow:0 12px 24px rgba(15,39,71,.15);
+      ">
+
+    <h4 style="margin-bottom:10px;color:#0f2747;">
+      Pride and Prejudice
+    </h4>
+
+    <p style="
+    color:#64748b;
+    font-size:14px;
+    line-height:1.8;
+    ">
+      Novel klasik karya Jane Austen tentang kehidupan sosial dan percintaan.
+    </p>
+
+    <a
+      href="https://www.gutenberg.org/ebooks/1342"
+      target="_blank"
+      style="
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      background:#0f2747;
+      color:#fff;
+      text-decoration:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      ">
+      Baca Buku
+    </a>
+
+  </div>
+
+  <!-- BUKU 2 -->
+
+  <div class="recommend-card">
+
+    <img
+      src="https://covers.openlibrary.org/b/isbn/9780141034355-L.jpg"
+      alt="Sherlock Holmes"
+      style="
+      width:100%;
+      height:380px;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:16px;
+      box-shadow:0 12px 24px rgba(15,39,71,.15);
+      ">
+
+    <h4 style="margin-bottom:10px;color:#0f2747;">
+      Sherlock Holmes
+    </h4>
+
+    <p style="
+    color:#64748b;
+    font-size:14px;
+    line-height:1.8;
+    ">
+      Cerita detektif terkenal karya Arthur Conan Doyle.
+    </p>
+
+    <a
+      href="https://www.gutenberg.org/ebooks/1661"
+      target="_blank"
+      style="
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      background:#0f2747;
+      color:#fff;
+      text-decoration:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      ">
+      Baca Buku
+    </a>
+
+  </div>
+
+  <!-- BUKU 3 -->
+
+  <div class="recommend-card">
+
+    <img
+      src="https://covers.openlibrary.org/b/isbn/9780743477116-L.jpg"
+      alt="Romeo and Juliet"
+      style="
+      width:100%;
+      height:380px;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:16px;
+      box-shadow:0 12px 24px rgba(15,39,71,.15);
+      ">
+
+    <h4 style="margin-bottom:10px;color:#0f2747;">
+      Romeo and Juliet
+    </h4>
+
+    <p style="
+    color:#64748b;
+    font-size:14px;
+    line-height:1.8;
+    ">
+      Drama romantis klasik karya William Shakespeare.
+    </p>
+
+    <a
+      href="https://www.gutenberg.org/ebooks/1513"
+      target="_blank"
+      style="
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      background:#0f2747;
+      color:#fff;
+      text-decoration:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      ">
+      Baca Buku
+    </a>
+
+  </div>
+
+  <!-- BUKU 4 -->
+
+  <div class="recommend-card">
+
+    <img
+      src="https://covers.openlibrary.org/b/isbn/9780141321073-L.jpg"
+      alt="Alice in Wonderland"
+      style="
+      width:100%;
+      height:380px;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:16px;
+      box-shadow:0 12px 24px rgba(15,39,71,.15);
+      ">
+
+    <h4 style="margin-bottom:10px;color:#0f2747;">
+      Alice in Wonderland
+    </h4>
+
+    <p style="
+    color:#64748b;
+    font-size:14px;
+    line-height:1.8;
+    ">
+      Cerita fantasi klasik tentang petualangan Alice di dunia ajaib.
+    </p>
+
+    <a
+      href="https://www.gutenberg.org/ebooks/11"
+      target="_blank"
+      style="
+      display:inline-block;
+      margin-top:12px;
+      padding:12px 18px;
+      background:#0f2747;
+      color:#fff;
+      text-decoration:none;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      ">
+      Baca Buku
+    </a>
+
+  </div>
+
+</section>
+
+  </div>
+
+</section>
+
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+</body>
+</html>

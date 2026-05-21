@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perpustakaan Cendekia - Profil</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --navy:#0f2747;
+      --navy2:#17365f;
+      --bg:#f4f7fb;
+      --white:#ffffff;
+      --text:#1f2937;
+      --muted:#64748b;
+      --line:#dbe3ee;
+      --shadow:0 14px 40px rgba(15,39,71,.10);
+      --radius:22px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:linear-gradient(180deg,#f4f7fb 0%, #eef3f9 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .container{
+      width:min(1150px,92%);
+      margin:auto;
+    }
+
+    header{
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      color:#fff;
+      padding:16px 0;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      width:58px;
+      height:58px;
+      flex-shrink:0;
+      display:block;
+    }
+
+    .brand h1{
+      font-size:24px;
+      margin-bottom:2px;
+      font-weight:700;
+    }
+
+    .brand p{
+      font-size:13px;
+      color:#dbe7f7;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      color:#fff;
+      font-size:14px;
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      display:inline-block;
+      transition:.25s;
+      font-weight:500;
+    }
+
+    nav a:hover,
+    nav a.active{
+      background:rgba(255,255,255,.14);
+    }
+
+    .profile-wrap{
+      padding:42px 0 54px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      margin:22px 0;
+    }
+
+    .hero{
+      text-align:center;
+      padding:34px 28px;
+    }
+
+    .hero .eyebrow{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(15,39,71,.08);
+      color:var(--navy);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .hero h2{
+      font-size:42px;
+      color:var(--navy);
+      margin-bottom:12px;
+      line-height:1.15;
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .logo-card{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .logo-circle{
+      width:190px;
+      height:190px;
+      margin:auto;
+      display:block;
+    }
+
+    .logo-caption h3,
+    .section-title{
+      font-size:24px;
+      color:var(--navy);
+      margin-bottom:12px;
+    }
+
+    .logo-caption p,
+    .text{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.85;
+    }
+
+    .profile-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .info-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 8px 24px rgba(15,39,71,.06);
+    }
+
+    .info-card h3{
+      color:var(--navy);
+      font-size:21px;
+      margin-bottom:12px;
+    }
+
+    .info-card ul{
+      list-style:none;
+      padding-left:0;
+    }
+
+    .info-card li{
+      padding-left:22px;
+      position:relative;
+      margin-bottom:10px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .info-card li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--navy);
+      font-size:20px;
+      line-height:1;
+    }
+
+    .org-title{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .org-title p{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .org-tree{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+    }
+
+    .org-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .org-node{
+      min-width:180px;
+      padding:14px 18px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#f8fbff,#edf4fb);
+      border:1px solid #cfdced;
+      color:var(--navy);
+      font-weight:600;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(15,39,71,.06);
+    }
+
+    .org-node.top{
+      min-width:240px;
+      background:linear-gradient(135deg,#0f2747,#17365f);
+      color:#fff;
+    }
+
+    .org-line{
+      width:2px;
+      height:22px;
+      background:#9fb4cc;
+    }
+
+    .footer{
+      background:var(--navy);
+      color:#fff;
+      text-align:center;
+      padding:18px 0;
+      margin-top:34px;
+    }
+
+    @media (max-width:900px){
+
+      .logo-card{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .profile-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media (max-width:768px){
+
+      .hero h2{
+        font-size:30px;
+      }
+
+      nav ul{
+        justify-content:center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="container topbar">
+
+      <div class="brand">
+
+       <!-- LOGO HEADER -->
+
+<div style="
+width:95px;
+height:95px;
+border-radius:26px;
+background:linear-gradient(145deg,#102c57,#173f75);
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 10px 30px rgba(16,44,87,.25);
+">
+
+  <!-- RAK -->
+  <div style="
+  position:absolute;
+  bottom:24px;
+  left:16px;
+  width:62px;
+  height:7px;
+  background:#ffffff;
+  border-radius:20px;
+  "></div>
+
+  <!-- BUKU 1 -->
+  <div style="
+  position:absolute;
+  bottom:31px;
+  left:18px;
+  width:12px;
+  height:34px;
+  background:#ffffff;
+  border-radius:4px;
+  transform:rotate(-6deg);
+  "></div>
+
+  <!-- BUKU 2 -->
+  <div style="
+  position:absolute;
+  bottom:31px;
+  left:34px;
+  width:12px;
+  height:42px;
+  background:#d9e6ff;
+  border-radius:4px;
+  "></div>
+
+  <!-- BUKU 3 -->
+  <div style="
+  position:absolute;
+  bottom:31px;
+  left:50px;
+  width:12px;
+  height:38px;
+  background:#ffffff;
+  border-radius:4px;
+  transform:rotate(5deg);
+  "></div>
+
+  <!-- HURUF C -->
+  <div style="
+  position:absolute;
+  top:18px;
+  right:16px;
+  width:22px;
+  height:22px;
+  border:4px solid #ffffff;
+  border-right:none;
+  border-radius:50%;
+  "></div>
+
+</div>
+
+        <div>
+          <h1>Perpustakaan Cendekia</h1>
+          <p>Menyediakan akses informasi yang mudah, nyaman, dan bermanfaat.</p>
+        </div>
+
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="profil.html">Profil</a></li>
+          <li><a href="opac.html">OPAC</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="koleksi.html">Koleksi</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+  </header>
+
+  <main class="profile-wrap">
+
+    <div class="container">
+
+      <section class="card hero">
+
+        <div class="eyebrow">Profil Perpustakaan</div>
+
+        <h2>Perpustakaan Cendekia</h2>
+
+        <p>
+          Perpustakaan modern yang dirancang untuk menghadirkan layanan informasi yang rapi,
+          nyaman, dan mudah diakses oleh seluruh pengguna.
+        </p>
+
+      </section>
+
+      <section class="card logo-card">
+
+      <!-- LOGO HEADER -->
+
+<div style="
+width:115px;
+height:115px;
+border-radius:30px;
+background:linear-gradient(145deg,#102c57,#173f75);
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 10px 30px rgba(16,44,87,.25);
+margin-left:12px;
+">
+
+  <!-- RAK -->
+  <div style="
+  position:absolute;
+  bottom:28px;
+  left:22px;
+  width:70px;
+  height:8px;
+  background:#ffffff;
+  border-radius:20px;
+  "></div>
+
+  <!-- BUKU 1 -->
+  <div style="
+  position:absolute;
+  bottom:36px;
+  left:24px;
+  width:14px;
+  height:40px;
+  background:#ffffff;
+  border-radius:4px;
+  transform:rotate(-6deg);
+  "></div>
+
+  <!-- BUKU 2 -->
+  <div style="
+  position:absolute;
+  bottom:36px;
+  left:43px;
+  width:14px;
+  height:50px;
+  background:#d9e6ff;
+  border-radius:4px;
+  "></div>
+
+  <!-- BUKU 3 -->
+  <div style="
+  position:absolute;
+  bottom:36px;
+  left:62px;
+  width:14px;
+  height:45px;
+  background:#ffffff;
+  border-radius:4px;
+  transform:rotate(5deg);
+  "></div>
+
+  <!-- HURUF C -->
+  <div style="
+  position:absolute;
+  top:22px;
+  right:18px;
+  width:28px;
+  height:28px;
+  border:5px solid #ffffff;
+  border-right:none;
+  border-radius:50%;
+  "></div>
+
+</div>
+
+        <div class="logo-caption">
+
+          <h3>Makna Logo Perpustakaan</h3>
+
+          <p>
+            Logo Perpustakaan Cendekia melambangkan sumber ilmu pengetahuan yang terbuka untuk semua pengguna.
+            Bentuk rak buku dan susunan buku menggambarkan pusat literasi, pembelajaran, dan perkembangan wawasan.
+            Huruf “C” melambangkan identitas Cendekia sebagai simbol kecerdasan dan pendidikan.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section class="profile-grid">
+
+        <div class="info-card">
+
+          <h3>Sejarah</h3>
+
+          <p class="text">
+            Perpustakaan Cendekia didirikan sebagai sarana pendukung literasi, pembelajaran,
+            dan akses informasi bagi seluruh pengguna.
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>Visi</h3>
+
+          <p class="text">
+            Menjadi perpustakaan modern yang unggul dalam pelayanan informasi,
+            nyaman digunakan, dan mudah diakses oleh seluruh pengguna.
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>Misi</h3>
+
+          <ul>
+            <li>Menyediakan akses informasi yang cepat dan terstruktur.</li>
+            <li>Meningkatkan kenyamanan pengguna dalam mencari koleksi.</li>
+            <li>Mendukung kegiatan literasi dan pembelajaran.</li>
+            <li>Menghadirkan layanan perpustakaan yang efektif dan profesional.</li>
+          </ul>
+
+        </div>
+
+      </section>
+
+      <section class="card">
+
+        <div class="org-title">
+
+          <h3 class="section-title">Struktur Organisasi</h3>
+
+          <p>
+            Bagan organisasi dibuat sederhana, formal, dan sesuai alur kerja perpustakaan.
+          </p>
+
+        </div>
+
+        <div class="org-tree">
+
+          <div class="org-node top">Kepala Perpustakaan</div>
+
+          <div class="org-line"></div>
+
+          <div class="org-row">
+            <div class="org-node">Sekretaris</div>
+            <div class="org-node">Bendahara</div>
+          </div>
+
+          <div class="org-line"></div>
+
+          <div class="org-row">
+            <div class="org-node">Pustakawan</div>
+            <div class="org-node">Petugas Layanan</div>
+            <div class="org-node">Pengelola Koleksi</div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2026 Perpustakaan Cendekia. All rights reserved.</p>
+  </div>
+
+</body>
+</html>

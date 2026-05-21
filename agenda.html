@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpustakaan Cendekia - Agenda</title>
+  <style>
+    :root{--navy:#0f2747;--navy2:#17365f;--bg:#f4f7fb;--white:#fff;--text:#1f2937;--muted:#64748b;--line:#dbe3ee;--shadow:0 10px 28px rgba(15,39,71,.10);--radius:18px;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    .container{width:min(1150px,92%);margin:auto;}
+    header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:16px 0;position:sticky;top:0;z-index:1000;box-shadow:var(--shadow);}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .logo{width:58px;height:58px;border-radius:50%;background:linear-gradient(145deg,#ffffff,#dce9fb);position:relative;display:grid;place-items:center;box-shadow:inset 0 0 0 3px rgba(15,39,71,.14);}
+    .logo:before,.logo:after{content:"";position:absolute;background:var(--navy);border-radius:10px;}
+    .logo:before{width:26px;height:6px;bottom:18px;box-shadow:0 -8px 0 var(--navy),0 -16px 0 var(--navy);}
+    .logo:after{width:18px;height:18px;border:3px solid var(--navy);border-radius:4px;top:14px;left:20px;transform:skewY(-8deg);background:transparent;}
+    .logo span{position:absolute;bottom:7px;right:10px;font-size:16px;font-weight:700;color:var(--navy);}
+    .brand h1{font-size:24px;margin-bottom:2px;}
+    .brand p{font-size:13px;color:#dbe7f7;}
+    nav ul{list-style:none;display:flex;gap:8px;flex-wrap:wrap;}
+    nav a{color:#fff;font-size:14px;padding:10px 14px;border-radius:999px;text-decoration:none;display:inline-block;transition:.25s;}
+    nav a:hover{background:rgba(255,255,255,.14);}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin:22px 0;}
+    h3{color:var(--navy);font-size:24px;margin-bottom:14px;}
+    .timeline{display:grid;gap:12px;}
+    .timeline-item{
+      display:grid;
+      grid-template-columns:140px 1fr;
+      gap:12px;
+      padding:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-left:5px solid var(--navy);
+      border-radius:14px;
+    }
+    .timeline-item span{color:var(--navy);font-weight:700;}
+    .timeline-item p{color:var(--muted);font-size:14px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px;}
+    .box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;}
+    .box h4{color:var(--navy);margin-bottom:8px;}
+    .box p{color:var(--muted);font-size:14px;}
+    .footer{background:var(--navy);color:#fff;text-align:center;padding:18px 0;margin-top:34px;}
+    @media(max-width:768px){.timeline-item{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <div class="brand">
+      <!-- LOGO HEADER -->
+
+<div style="
+width:95px;
+height:95px;
+border-radius:26px;
+background:linear-gradient(145deg,#102c57,#173f75);
+position:relative;
+overflow:hidden;
+flex-shrink:0;
+box-shadow:0 10px 30px rgba(16,44,87,.25);
+">
+
+  <!-- RAK -->
+  <div style="
+  position:absolute;
+  bottom:24px;
+  left:16px;
+  width:62px;
+  height:7px;
+  background:#ffffff;
+  border-radius:20px;
+  "></div>
+
+  <!-- BUKU 1 -->
+  <div style="
+  position:absolute;
+  bottom:31px;
+  left:18px;
+  width:12px;
+  height:34px;
+  background:#ffffff;
+  border-radius:4px;
+  transform:rotate(-6deg);
+  "></div>
+
+  <!-- BUKU 2 -->
+  <div style="
+  position:absolute;
+  bottom:31px;
+  left:34px;
+  width:12px;
+  height:42px;
+  background:#d9e6ff;
+  border-radius:4px;
+  "></div>
+
+  <!-- BUKU 3 -->
+  <div style="
+  position:absolute;
+  bottom:31px;
+  left:50px;
+  width:12px;
+  height:38px;
+  background:#ffffff;
+  border-radius:4px;
+  transform:rotate(5deg);
+  "></div>
+
+  <!-- HURUF C -->
+  <div style="
+  position:absolute;
+  top:18px;
+  right:16px;
+  width:22px;
+  height:22px;
+  border:4px solid #ffffff;
+  border-right:none;
+  border-radius:50%;
+  "></div>
+
+</div>
+      <div>
+        <h1>Perpustakaan Cendekia</h1>
+        <p>Menyediakan akses informasi yang mudah, nyaman, dan bermanfaat.</p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="opac.html">OPAC</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="koleksi.html">Koleksi</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="berita.html">Berita</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h3>Agenda / Kegiatan Perpustakaan</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span>12 Juni 2026</span>
+        <div>
+          <h4>Seminar Literasi Digital</h4>
+          <p>Seminar ini bertujuan mengajarkan cara mencari informasi yang benar, aman, dan bermanfaat di internet. Pengunjung juga diperkenalkan pada sumber belajar digital yang valid.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span>20 Juni 2026</span>
+        <div>
+          <h4>Bedah Buku Bersama Pustakawan</h4>
+          <p>Kegiatan membaca dan membahas isi buku agar pengunjung tidak hanya membaca, tetapi juga memahami pesan dan manfaat dari bacaan tersebut.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span>25 Juni 2026</span>
+        <div>
+          <h4>Pelatihan Cara Menggunakan OPAC</h4>
+          <p>Pelatihan ini membantu pengunjung mengenal sistem katalog online, memahami cara mencari buku, dan membaca informasi lokasi buku di rak.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span>30 Juni 2026</span>
+        <div>
+          <h4>Hari Kunjungan Pelajar</h4>
+          <p>Agenda khusus untuk siswa agar lebih mengenal perpustakaan, fasilitas, dan manfaat literasi sejak dini.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="box">
+        <h4>Tujuan Agenda</h4>
+        <p>Agenda dibuat agar perpustakaan tidak hanya menjadi tempat meminjam buku, tetapi juga pusat kegiatan literasi dan edukasi.</p>
+      </div>
+      <div class="box">
+        <h4>Manfaat bagi Pengunjung</h4>
+        <p>Pengunjung bisa menambah wawasan, mengenal layanan perpustakaan, dan ikut aktif dalam kegiatan yang mendidik.</p>
+      </div>
+      <div class="box">
+        <h4>Catatan Kegiatan</h4>
+        <p>Agenda dapat diperbarui secara berkala sesuai kebutuhan sekolah atau instansi yang menggunakan website ini.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2026 Perpustakaan Cendekia. All rights reserved.</p>
+</div>
+</body>
+</html>

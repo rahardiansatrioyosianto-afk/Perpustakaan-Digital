@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perpustakaan Cendekia - Profil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0f2747;
+      --navy2:#17365f;
+      --bg:#f4f7fb;
+      --white:#ffffff;
+      --text:#1f2937;
+      --muted:#64748b;
+      --line:#dbe3ee;
+      --shadow:0 14px 40px rgba(15,39,71,.10);
+      --radius:22px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:linear-gradient(180deg,#f4f7fb 0%, #eef3f9 100%);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .container{
+      width:min(1150px,92%);
+      margin:auto;
+    }
+
+    header{
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      color:#fff;
+      padding:18px 0;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:var(--shadow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .brand-text h1{
+      font-size:24px;
+      margin-bottom:2px;
+      font-weight:700;
+    }
+
+    .brand-text p{
+      font-size:13px;
+      color:#dbe7f7;
+    }
+
+    .logo{
+      width:58px;
+      height:58px;
+      flex-shrink:0;
+      display:block;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      color:#fff;
+      font-size:14px;
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      display:inline-block;
+      transition:.25s;
+      font-weight:500;
+    }
+
+    nav a:hover, nav a.active{
+      background:rgba(255,255,255,.14);
+    }
+
+    .page{
+      padding:42px 0 54px;
+    }
+
+    .hero{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:34px 28px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(15,39,71,.08);
+      color:var(--navy);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .hero h2{
+      font-size:42px;
+      color:var(--navy);
+      margin-bottom:12px;
+      line-height:1.15;
+    }
+
+    .hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .logo-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:28px;
+      align-items:center;
+      margin-bottom:22px;
+    }
+
+    .logo-box{
+      display:grid;
+      place-items:center;
+    }
+
+    .logo-large{
+      width:190px;
+      height:190px;
+      display:block;
+    }
+
+    .logo-caption h3{
+      font-size:24px;
+      color:var(--navy);
+      margin-bottom:12px;
+    }
+
+    .logo-caption p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.85;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:18px;
+      margin-bottom:22px;
+    }
+
+    .box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 8px 24px rgba(15,39,71,.06);
+      transition:.25s;
+    }
+
+    .box:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 34px rgba(15,39,71,.10);
+    }
+
+    .box h4{
+      color:var(--navy);
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    .box p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    details{
+      margin-top:14px;
+      background:#f8fbff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 16px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      color:var(--navy);
+      list-style:none;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    details p{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    .org-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .org-title{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .org-title h3{
+      font-size:24px;
+      color:var(--navy);
+      margin-bottom:10px;
+    }
+
+    .org-title p{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .org-tree{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+    }
+
+    .org-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .org-node{
+      min-width:180px;
+      padding:14px 18px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#f8fbff,#edf4fb);
+      border:1px solid #cfdced;
+      color:var(--navy);
+      font-weight:600;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(15,39,71,.06);
+    }
+
+    .org-node.top{
+      min-width:240px;
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      color:#fff;
+    }
+
+    .org-line{
+      width:2px;
+      height:22px;
+      background:#9fb4cc;
+    }
+
+    .footer{
+      background:var(--navy);
+      color:#fff;
+      text-align:center;
+      padding:18px 0;
+      margin-top:34px;
+    }
+
+    @media (max-width: 900px){
+      .logo-card{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+    }
+
+    @media (max-width: 768px){
+      .hero h2{
+        font-size:30px;
+      }
+      nav ul{
+        justify-content:center;
+      }
+      .logo-large{
+        width:160px;
+        height:160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Perpustakaan Cendekia" role="img">
+          <defs>
+            <radialGradient id="bgGrad" cx="30%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="55%" stop-color="#dfeafb"/>
+              <stop offset="100%" stop-color="#c6d8f1"/>
+            </radialGradient>
+            <linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0f2747"/>
+              <stop offset="100%" stop-color="#17365f"/>
+            </linearGradient>
+          </defs>
+          <circle cx="95" cy="95" r="92" fill="url(#bgGrad)"/>
+          <circle cx="95" cy="95" r="92" fill="none" stroke="rgba(15,39,71,.08)" stroke-width="5"/>
+          <circle cx="95" cy="52" r="14" fill="#f6c85f"/>
+          <circle cx="95" cy="52" r="24" fill="none" stroke="rgba(246,200,95,.16)" stroke-width="10"/>
+          <rect x="54" y="76" width="82" height="46" rx="6" fill="url(#bookGrad)" transform="skewY(-10 95 95)"/>
+          <rect x="67" y="88" width="55" height="3" fill="#ffffff"/>
+          <rect x="67" y="98" width="55" height="3" fill="#ffffff"/>
+          <rect x="67" y="108" width="55" height="3" fill="#ffffff"/>
+          <polygon points="145,28 149,38 159,38 151,44 154,54 145,48 136,54 139,44 131,38 141,38" fill="#0f2747"/>
+        </svg>
+        <div class="brand-text">
+          <h1>Perpustakaan Cendekia</h1>
+          <p>Menyediakan akses informasi yang mudah, nyaman, dan bermanfaat.</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="profil.html">Profil</a></li>
+          <li><a href="opac.html">OPAC</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="koleksi.html">Koleksi</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+          <li><a href="berita.html">Berita</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <section class="hero">
+        <div class="eyebrow">Profil Perpustakaan</div>
+        <h2>Perpustakaan Cendekia</h2>
+        <p>Perpustakaan modern yang dirancang untuk menghadirkan layanan informasi yang rapi, nyaman, dan mudah diakses oleh seluruh pengguna.</p>
+      </section>
+
+      <section class="logo-card">
+        <div class="logo-box">
+          <svg class="logo-large" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Perpustakaan Cendekia" role="img">
+            <defs>
+              <radialGradient id="bgGrad2" cx="30%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="55%" stop-color="#dfeafb"/>
+                <stop offset="100%" stop-color="#c6d8f1"/>
+              </radialGradient>
+              <linearGradient id="bookGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0f2747"/>
+                <stop offset="100%" stop-color="#17365f"/>
+              </linearGradient>
+            </defs>
+            <circle cx="95" cy="95" r="92" fill="url(#bgGrad2)"/>
+            <circle cx="95" cy="95" r="92" fill="none" stroke="rgba(15,39,71,.08)" stroke-width="5"/>
+            <circle cx="95" cy="52" r="14" fill="#f6c85f"/>
+            <circle cx="95" cy="52" r="24" fill="none" stroke="rgba(246,200,95,.16)" stroke-width="10"/>
+            <rect x="54" y="76" width="82" height="46" rx="6" fill="url(#bookGrad2)" transform="skewY(-10 95 95)"/>
+            <rect x="67" y="88" width="55" height="3" fill="#ffffff"/>
+            <rect x="67" y="98" width="55" height="3" fill="#ffffff"/>
+            <rect x="67" y="108" width="55" height="3" fill="#ffffff"/>
+            <polygon points="145,28 149,38 159,38 151,44 154,54 145,48 136,54 139,44 131,38 141,38" fill="#0f2747"/>
+          </svg>
+        </div>
+        <div class="logo-caption">
+          <h3>Makna Logo Perpustakaan</h3>
+          <p>
+            Logo Perpustakaan Cendekia melambangkan sumber ilmu pengetahuan yang terbuka untuk semua pengguna.
+            Bentuk buku pada logo menggambarkan pusat literasi dan pembelajaran, sedangkan cahaya di atasnya
+            melambangkan pencerahan, wawasan, dan semangat untuk terus berkembang.
+            Warna biru tua menunjukkan kesan profesional, tenang, dan terpercaya.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="box">
+          <h4>Sejarah</h4>
+          <p>Perpustakaan Cendekia didirikan sebagai sarana pendukung literasi, pembelajaran, dan akses informasi.</p>
+          <details>
+            <summary>Baca ringkasan</summary>
+            <p>Tujuannya adalah menghadirkan layanan informasi yang sederhana, modern, dan mudah digunakan.</p>
+          </details>
+        </div>
+
+        <div class="box">
+          <h4>Visi</h4>
+          <p>Menjadi perpustakaan modern yang unggul dalam pelayanan informasi, nyaman digunakan, dan mudah diakses.</p>
+        </div>
+
+        <div class="box">
+          <h4>Misi</h4>
+          <p>Menyediakan akses informasi cepat, meningkatkan kenyamanan pengguna, dan mendukung literasi.</p>
+        </div>
+      </section>
+
+      <section class="org-card">
+        <div class="org-title">
+          <h3>Struktur Organisasi</h3>
+          <p>Bagan organisasi dibuat sederhana dan formal sesuai alur kerja perpustakaan.</p>
+        </div>
+        <div class="org-tree">
+          <div class="org-node top">Kepala Perpustakaan</div>
+          <div class="org-line"></div>
+          <div class="org-row">
+            <div class="org-node">Sekretaris</div>
+            <div class="org-node">Bendahara</div>
+          </div>
+          <div class="org-line"></div>
+          <div class="org-row">
+            <div class="org-node">Pustakawan</div>
+            <div class="org-node">Petugas Layanan</div>
+            <div class="org-node">Pengelola Koleksi</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="footer">
+    <p>&copy; 2026 Perpustakaan Cendekia. All rights reserved.</p>
+  </div>
+</body>
+</html>
