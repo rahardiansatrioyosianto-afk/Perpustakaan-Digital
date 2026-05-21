@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perpustakaan Cendekia - Home</title>
+
+<style>
+
+:root{
+  --navy:#102c57;
+  --navy2:#173f75;
+  --bg:#f4f7fb;
+  --text:#1f2937;
+  --muted:#64748b;
+  --line:#dbe3ee;
+  --shadow:0 10px 28px rgba(15,39,71,.10);
+  --radius:18px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:#fff;
+  padding:18px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:var(--shadow);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* BRAND */
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+/* LOGO BARU */
+
+.logo{
+  width:95px;
+  height:95px;
+  border-radius:26px;
+  background:linear-gradient(145deg,#102c57,#173f75);
+  position:relative;
+  overflow:hidden;
+  flex-shrink:0;
+
+  box-shadow:
+    0 10px 30px rgba(16,44,87,.25);
+}
+
+/* RAK BUKU */
+
+.logo .shelf{
+  position:absolute;
+  bottom:24px;
+  left:16px;
+
+  width:62px;
+  height:7px;
+
+  background:#ffffff;
+  border-radius:20px;
+}
+
+/* BUKU */
+
+.logo .book1{
+  position:absolute;
+  bottom:31px;
+  left:18px;
+
+  width:12px;
+  height:34px;
+
+  background:#ffffff;
+  border-radius:4px;
+
+  transform:rotate(-6deg);
+}
+
+.logo .book2{
+  position:absolute;
+  bottom:31px;
+  left:34px;
+
+  width:12px;
+  height:42px;
+
+  background:#d9e6ff;
+  border-radius:4px;
+}
+
+.logo .book3{
+  position:absolute;
+  bottom:31px;
+  left:50px;
+
+  width:12px;
+  height:38px;
+
+  background:#ffffff;
+  border-radius:4px;
+
+  transform:rotate(5deg);
+}
+
+/* HURUF C */
+
+.logo .cendekia{
+  position:absolute;
+  top:18px;
+  right:16px;
+
+  width:22px;
+  height:22px;
+
+  border:4px solid #ffffff;
+  border-right:none;
+
+  border-radius:50%;
+}
+
+/* TEXT */
+
+.brand-text h1{
+  font-size:48px;
+  color:#fff;
+  line-height:1.1;
+  margin-bottom:8px;
+}
+
+.brand-text p{
+  color:#dbe4f1;
+  font-size:20px;
+}
+
+/* NAVBAR */
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  padding:10px 14px;
+  border-radius:999px;
+  display:inline-block;
+  transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+  background:rgba(255,255,255,.14);
+}
+
+/* PAGE */
+
+.page{
+  padding:42px 0 54px;
+}
+
+/* HERO */
+
+.hero{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:48px 30px;
+  box-shadow:var(--shadow);
+  margin-bottom:24px;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:44px;
+  color:var(--navy);
+  margin-bottom:14px;
+  line-height:1.2;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:var(--muted);
+  font-size:17px;
+}
+
+.hero-btn{
+  margin-top:24px;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.box{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 8px 24px rgba(15,39,71,.06);
+  transition:.25s;
+}
+
+.box:hover{
+  transform:translateY(-4px);
+}
+
+.box h3{
+  color:var(--navy);
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+.box p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* ABOUT */
+
+.about{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:28px;
+  align-items:center;
+}
+
+/* LOGO BESAR */
+
+.logo-large{
+  width:190px;
+  height:190px;
+  border-radius:36px;
+  background:linear-gradient(145deg,#102c57,#173f75);
+  position:relative;
+  overflow:hidden;
+
+  box-shadow:
+    0 10px 30px rgba(16,44,87,.25);
+}
+
+.logo-large .shelf{
+  position:absolute;
+  bottom:42px;
+  left:32px;
+
+  width:124px;
+  height:10px;
+
+  background:#ffffff;
+  border-radius:20px;
+}
+
+.logo-large .book1{
+  position:absolute;
+  bottom:52px;
+  left:38px;
+
+  width:22px;
+  height:70px;
+
+  background:#ffffff;
+  border-radius:6px;
+
+  transform:rotate(-6deg);
+}
+
+.logo-large .book2{
+  position:absolute;
+  bottom:52px;
+  left:68px;
+
+  width:22px;
+  height:86px;
+
+  background:#d9e6ff;
+  border-radius:6px;
+}
+
+.logo-large .book3{
+  position:absolute;
+  bottom:52px;
+  left:98px;
+
+  width:22px;
+  height:78px;
+
+  background:#ffffff;
+  border-radius:6px;
+
+  transform:rotate(5deg);
+}
+
+.logo-large .cendekia{
+  position:absolute;
+  top:34px;
+  right:28px;
+
+  width:42px;
+  height:42px;
+
+  border:6px solid #ffffff;
+  border-right:none;
+
+  border-radius:50%;
+}
+
+.about-text h3{
+  font-size:28px;
+  color:var(--navy);
+  margin-bottom:12px;
+}
+
+.about-text p{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+/* FOOTER */
+
+.footer{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:18px 0;
+  margin-top:34px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .about{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .logo-large{
+    margin:auto;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .topbar{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .brand{
+    flex-direction:column;
+  }
+
+  .brand-text h1{
+    font-size:34px;
+  }
+
+  .brand-text p{
+    font-size:16px;
+  }
+
+  .hero h2{
+    font-size:32px;
+  }
+
+  nav ul{
+    justify-content:center;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container topbar">
+
+  <div class="brand">
+
+    <!-- LOGO HEADER -->
+
+    <div class="logo">
+
+      <div class="shelf"></div>
+
+      <div class="book1"></div>
+      <div class="book2"></div>
+      <div class="book3"></div>
+
+      <div class="cendekia"></div>
+
+    </div>
+
+    <div class="brand-text">
+
+      <h1>Perpustakaan Cendekia</h1>
+
+      <p>
+        Menyediakan akses informasi yang mudah, nyaman, dan bermanfaat.
+      </p>
+
+    </div>
+
+  </div>
+
+  <nav>
+
+    <ul>
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="profil.html">Profil</a></li>
+      <li><a href="opac.html">OPAC</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="koleksi.html">Koleksi</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="berita.html">Berita</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+
+  </nav>
+
+</div>
+
+</header>
+
+<main class="page">
+
+<div class="container">
+
+  <section class="hero">
+
+    <h2>
+      Selamat Datang di Perpustakaan Cendekia
+    </h2>
+
+    <p>
+      Website perpustakaan digital modern yang menyediakan layanan informasi,
+      koleksi buku, dan akses baca online untuk seluruh pengguna.
+    </p>
+
+    <div class="hero-btn">
+      <a href="koleksi.html" class="btn">
+        Lihat Koleksi
+      </a>
+    </div>
+
+  </section>
+
+  <section class="grid">
+
+    <div class="box">
+
+      <h3>Koleksi Buku</h3>
+
+      <p>
+        Menyediakan berbagai buku pelajaran, novel, referensi, dan koleksi umum.
+      </p>
+
+    </div>
+
+    <div class="box">
+
+      <h3>Koleksi Digital</h3>
+
+      <p>
+        Pengguna dapat membaca e-book dan file PDF langsung melalui website.
+      </p>
+
+    </div>
+
+    <div class="box">
+
+      <h3>Layanan Perpustakaan</h3>
+
+      <p>
+        Tersedia layanan peminjaman, pencarian koleksi, dan akses informasi digital.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="about">
+
+    <!-- LOGO BESAR -->
+
+    <div class="logo-large">
+
+      <div class="shelf"></div>
+
+      <div class="book1"></div>
+      <div class="book2"></div>
+      <div class="book3"></div>
+
+      <div class="cendekia"></div>
+
+    </div>
+
+    <div class="about-text">
+
+      <h3>Tentang Perpustakaan</h3>
+
+      <p>
+        Perpustakaan Cendekia dirancang sebagai pusat informasi modern yang nyaman,
+        rapi, dan mudah diakses. Website ini membantu pengguna menemukan koleksi,
+        membaca buku digital, serta memperoleh informasi perpustakaan secara online.
+      </p>
+
+    </div>
+
+  </section>
+
+</div>
+
+</main>
+
+<div class="footer">
+  <p>&copy; 2026 Perpustakaan Cendekia. All rights reserved.</p>
+</div>
+
+</body>
+</html>
